@@ -1,13 +1,19 @@
 version: '3'
-
 services:
-    networkstuff-mysql-db:
-        image: mysql:8.0.32
-        container_name: networkstuff-mysql-db
-        ports:
-            - "3306:3306"
-        environment:
-            MYSQL_ROOT_PASSWORD: 123456
-            MYSQL_USER: '%'
-            MYSQL_PASSWORD: 123456Aa@
-            MYSQL_ROOT_HOST: '%'
+  networkstuff-mysql-db:
+    image: mysql:8.0.32
+    container_name: networkstuff-mysql-db
+    environment:
+      MYSQL_ROOT_HOST: XXXX
+      MYSQL_ROOT_PASSWORD: XXXX
+      MYSQL_USER: XXXX
+      MYSQL_PASSWORD: XXXX
+
+    ports:
+      - "3306:3306"
+
+    volumes:
+      - networkstuff-mysql-db:/var/lib/mysql
+
+volumes:
+  networkstuff-mysql-db: {}
